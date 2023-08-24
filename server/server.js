@@ -6,7 +6,7 @@ import axios from 'axios';
 dotenv.config()
 
 const openai = new OpenAI({
-    apiKey: "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",
+    apiKey: "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",
 });
 
 const app = express()
@@ -25,8 +25,7 @@ app.post('/', async (req, res) => {
 
     const response = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
-        messages: [{"role":"user","content":`${prompt}`}],
-        temperature: 0,
+        messages: [{"role":"system","content":`${prompt}`}],
         max_tokens: 1024,
       });
       
